@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import profileAvatar from "@/assets/profile-avatar.png";
 
 const Hero = () => {
   return (
@@ -14,6 +15,16 @@ const Hero = () => {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px] animate-pulse-glow" />
 
       <div className="section-container relative z-10 text-center">
+        {/* Profile Picture */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.1, duration: 0.5 }}
+          className="mx-auto mb-6 h-28 w-28 overflow-hidden rounded-full border-2 border-primary/30 glow-effect"
+        >
+          <img src={profileAvatar} alt="Md Masud Rana" className="h-full w-full object-cover" />
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
