@@ -43,9 +43,9 @@ const Skills = () => {
   }, []);
 
   const rings = [
-    { skills: ring1, radius: isMobile ? 100 : 155 },
-    { skills: ring2, radius: isMobile ? 170 : 265 },
-    { skills: ring3, radius: isMobile ? 240 : 370 },
+    { skills: ring1, radius: isMobile ? 110 : 155 },
+    { skills: ring2, radius: isMobile ? 185 : 265 },
+    { skills: ring3, radius: isMobile ? 255 : 370 },
   ];
 
   return (
