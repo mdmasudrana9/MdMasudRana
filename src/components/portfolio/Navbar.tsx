@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -9,7 +10,9 @@ const navLinks = [
   { label: "Projects", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Blog", href: "#blog" },
+  { label: "Courses", href: "#courses" },
   { label: "Judges", href: "#judges" },
+  { label: "GitHub", href: "#github" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -25,8 +28,9 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl"
     >
       <div className="section-container flex h-16 items-center justify-between">
-        <a href="#" className="font-mono text-lg font-bold text-primary">
-          {"<MR />"}
+        <a href="#" className="flex items-center gap-2">
+          <img src={logo} alt="MR Logo" className="h-8 w-8 rounded" />
+          <span className="font-mono text-lg font-bold text-primary">MR</span>
         </a>
 
         {/* Desktop */}

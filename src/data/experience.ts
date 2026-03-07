@@ -8,6 +8,17 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    company: "Unipixer",
+    position: "Fullstack Developer",
+    location: "Remote",
+    duration: "Feb 2025 – Present",
+    responsibilities: [
+      "Developing full-stack web applications with React, Node.js, and MongoDB.",
+      "Building RESTful APIs and integrating third-party services.",
+      "Collaborating with cross-functional teams to deliver scalable solutions.",
+    ],
+  },
+  {
     company: "Nexstack",
     position: "NextJS React Developer",
     location: "Singapore (Remote)",
