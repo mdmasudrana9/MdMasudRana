@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { skillCategories } from "@/data/skills";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useEffect, useState } from "react";
 
 const pastelColors = [
   "bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-300",
@@ -15,19 +16,36 @@ const pastelColors = [
   "bg-cyan-100 text-cyan-700 dark:bg-cyan-900/30 dark:text-cyan-300",
 ];
 
-// Split skills into 3 orbit rings
 const allSkills = skillCategories.flatMap((cat) => cat.skills);
 const ring1 = allSkills.slice(0, 8);
 const ring2 = allSkills.slice(8, 20);
 const ring3 = allSkills.slice(20);
 
+// Rotation speeds (degrees per frame) — alternate directions
+const RING_SPEEDS = [0.015, -0.01, 0.007];
+
 const Skills = () => {
   const isMobile = useIsMobile();
+  const [offsets, setOffsets] = useState([0, 0, 0]);
+
+  useEffect(() => {
+    let raf: number;
+    const tick = () => {
+      setOffsets((prev) => [
+        prev[0] + RING_SPEEDS[0],
+        prev[1] + RING_SPEEDS[1],
+        prev[2] + RING_SPEEDS[2],
+      ]);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   const rings = [
-    { skills: ring1, radius: isMobile ? 100 : 155, dotSize: "w-2 h-2" },
-    { skills: ring2, radius: isMobile ? 170 : 265, dotSize: "w-1.5 h-1.5" },
-    { skills: ring3, radius: isMobile ? 240 : 370, dotSize: "w-1 h-1" },
+    { skills: ring1, radius: isMobile ? 100 : 155 },
+    { skills: ring2, radius: isMobile ? 170 : 265 },
+    { skills: ring3, radius: isMobile ? 240 : 370 },
   ];
 
   return (
@@ -44,7 +62,6 @@ const Skills = () => {
           </h2>
         </motion.div>
 
-        {/* Radial layout */}
         <div className="relative flex items-center justify-center min-h-[520px] sm:min-h-[780px]">
           {/* Center icon */}
           <motion.div
@@ -57,82 +74,52 @@ const Skills = () => {
             <span className="text-2xl sm:text-3xl font-bold gradient-text">⚛</span>
           </motion.div>
 
-          {/* Orbit rings */}
+          {/* Static orbit ring borders */}
           {rings.map((ring, ri) => (
-            <motion.div
+            <div
               key={ri}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: ri * 0.15, duration: 0.5 }}
               className="absolute rounded-full border border-primary/10"
-              style={{
-                width: ring.radius * 2,
-                height: ring.radius * 2,
-              }}
+              style={{ width: ring.radius * 2, height: ring.radius * 2 }}
             />
           ))}
 
-          {/* Skill nodes on each ring */}
+          {/* Rotating skill nodes */}
           {rings.map((ring, ri) =>
             ring.skills.map((skill, i) => {
               const total = ring.skills.length;
-              const angle = (i / total) * 360 - 90;
+              const baseAngle = (i / total) * 360 - 90;
+              const angle = baseAngle + offsets[ri];
               const rad = (angle * Math.PI) / 180;
               const x = Math.cos(rad) * ring.radius;
               const y = Math.sin(rad) * ring.radius;
-              const globalIndex = (ri === 0 ? 0 : ri === 1 ? ring1.length : ring1.length + ring2.length) + i;
+              const globalIndex =
+                (ri === 0 ? 0 : ri === 1 ? ring1.length : ring1.length + ring2.length) + i;
               const colorClass = pastelColors[globalIndex % pastelColors.length];
 
               return (
-                <motion.div
+                <div
                   key={skill}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: ri * 0.12 + i * 0.035,
-                    type: "spring",
-                    stiffness: 260,
-                    damping: 20,
-                  }}
-                  whileHover={{ scale: 1.15, zIndex: 20 }}
-                  className="absolute z-[5] cursor-default"
+                  className="absolute z-[5] cursor-default transition-transform duration-100"
                   style={{
                     left: `calc(50% + ${x}px)`,
                     top: `calc(50% + ${y}px)`,
                     transform: "translate(-50%, -50%)",
                   }}
                 >
-                  {/* Connector line to center */}
-                  <div
-                    className="absolute bg-primary/10"
-                    style={{
-                      width: "1px",
-                      height: `${ring.radius - 30}px`,
-                      left: "50%",
-                      bottom: "50%",
-                      transformOrigin: "bottom center",
-                      transform: `translateX(-50%) rotate(${angle + 90}deg)`,
-                      display: ri === 0 ? "block" : "none",
-                    }}
-                  />
                   <span
-                    className={`inline-block whitespace-nowrap rounded-full shadow-sm font-semibold transition-shadow duration-200 hover:shadow-md ${colorClass} ${
-                      isMobile
-                        ? "px-2 py-1 text-[10px]"
-                        : "px-3 py-1.5 text-xs"
+                    className={`inline-block whitespace-nowrap rounded-full shadow-sm font-semibold hover:shadow-md hover:scale-110 transition-all duration-200 ${colorClass} ${
+                      isMobile ? "px-2 py-1 text-[10px]" : "px-3 py-1.5 text-xs"
                     }`}
                   >
                     {skill}
                   </span>
-                </motion.div>
+                </div>
               );
             })
           )}
         </div>
 
-        {/* Category cards below */}
+        {/* Category cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-16">
           {skillCategories.map((cat, i) => (
             <motion.div
