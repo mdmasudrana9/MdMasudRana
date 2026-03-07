@@ -22,7 +22,7 @@ const ring2 = allSkills.slice(8, 20);
 const ring3 = allSkills.slice(20);
 
 // Rotation speeds (degrees per frame) — alternate directions
-const RING_SPEEDS = [0.015, -0.01, 0.007];
+const RING_SPEEDS = [0.08, -0.05, 0.035];
 
 const Skills = () => {
   const isMobile = useIsMobile();
