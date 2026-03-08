@@ -1,23 +1,8 @@
 import { motion } from "framer-motion";
-import { useEffect, useRef } from "react";
 import { Github } from "lucide-react";
-// @ts-ignore
-import GitHubCalendarLib from "github-calendar";
-import "github-calendar/dist/github-calendar-responsive.css";
+import { GitHubCalendar as GitHubCalendarComponent } from "react-github-calendar";
 
 const GitHubCalendar = () => {
-  const calendarRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (calendarRef.current) {
-      calendarRef.current.innerHTML = "";
-      GitHubCalendarLib(calendarRef.current, "mdmasudrana9", {
-        responsive: true,
-        tooltips: true,
-      });
-    }
-  }, []);
-
   return (
     <section id="github" className="py-24">
       <div className="section-container">
@@ -49,7 +34,13 @@ const GitHubCalendar = () => {
           viewport={{ once: true }}
           className="card-glass p-6 overflow-x-auto"
         >
-          <div ref={calendarRef} className="github-calendar-container" />
+          <GitHubCalendarComponent
+            username="mdmasudrana9"
+            colorScheme="dark"
+            blockSize={13}
+            blockMargin={4}
+            fontSize={12}
+          />
         </motion.div>
       </div>
     </section>
