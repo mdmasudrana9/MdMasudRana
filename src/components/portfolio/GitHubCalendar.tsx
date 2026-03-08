@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
-import GitHubCalendarComponent from "react-github-calendar";
+import { GitHubCalendar as GitHubCalendarComponent } from "react-github-calendar";
 
 const GitHubCalendar = () => {
   return (
