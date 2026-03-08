@@ -83,9 +83,9 @@
     --input: 220 14% 88%;
     --ring: 127 50% 42%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(174 72% 40%), hsl(190 80% 35%));
+    --gradient-primary: linear-gradient(135deg, hsl(127 50% 42%), hsl(140 60% 35%));
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(220 14% 97%));
-    --shadow-glow: 0 0 30px -5px hsl(174 72% 40% / 0.12);
+    --shadow-glow: 0 0 30px -5px hsl(127 50% 42% / 0.12);
     --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.08);
 
     --sidebar-background: 0 0% 100%;
