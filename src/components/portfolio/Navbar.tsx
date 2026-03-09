@@ -2,24 +2,26 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
+import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
-  { label: "Blog", href: "#blog" },
-  { label: "Courses", href: "#courses" },
-  { label: "Judges", href: "#judges" },
-  { label: "GitHub", href: "#github" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/about" },
+  { label: "Skills", href: "/skills" },
+  { label: "Projects", href: "/projects" },
+  { label: "Experience", href: "/experience" },
+  { label: "Education", href: "/education" },
+  { label: "Blog", href: "/blog" },
+  { label: "Courses", href: "/courses" },
+  { label: "Judges", href: "/judges" },
+  { label: "GitHub", href: "/github" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
 
   return (
     <motion.nav
@@ -29,21 +31,25 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl"
     >
       <div className="section-container flex h-16 items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="MR Logo" className="h-8 w-8 rounded" />
           <span className="font-mono text-lg font-bold text-primary">MR</span>
-        </a>
+        </Link>
 
         {/* Desktop */}
         <ul className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-primary transition-colors duration-200"
+              <Link
+                to={link.href}
+                className={`text-sm transition-colors duration-200 ${
+                  location.pathname === link.href
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
           <li>
@@ -56,12 +62,12 @@ const Navbar = () => {
             </button>
           </li>
           <li>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
             >
               Hire Me
-            </a>
+            </Link>
           </li>
         </ul>
 
@@ -96,13 +102,17 @@ const Navbar = () => {
             <ul className="flex flex-col gap-4 p-6">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className={`text-sm transition-colors ${
+                      location.pathname === link.href
+                        ? "text-primary font-semibold"
+                        : "text-muted-foreground hover:text-primary"
+                    }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
