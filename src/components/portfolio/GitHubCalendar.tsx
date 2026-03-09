@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
 import { GitHubCalendar as GitHubCalendarComponent } from "react-github-calendar";
 
 const GitHubCalendar = () => {
+  const currentYear = new Date().getFullYear();
+  const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
+  const [selectedYear, setSelectedYear] = useState<number>(currentYear);
+
   return (
     <section id="github" className="py-24">
       <div className="section-container">
@@ -34,13 +39,33 @@ const GitHubCalendar = () => {
           viewport={{ once: true }}
           className="card-glass p-6 overflow-x-auto"
         >
-          <GitHubCalendarComponent
-            username="mdmasudrana9"
-            colorScheme="dark"
-            blockSize={13}
-            blockMargin={4}
-            fontSize={12}
-          />
+          <div className="flex gap-4 items-start">
+            <div className="flex-1 min-w-0">
+              <GitHubCalendarComponent
+                username="mdmasudrana9"
+                colorScheme="dark"
+                blockSize={13}
+                blockMargin={4}
+                fontSize={12}
+                year={selectedYear}
+              />
+            </div>
+            <div className="flex flex-col gap-2 shrink-0">
+              {years.map((year) => (
+                <button
+                  key={year}
+                  onClick={() => setSelectedYear(year)}
+                  className={`px-4 py-1.5 rounded-lg text-sm font-mono transition-all ${
+                    selectedYear === year
+                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                      : "bg-muted/50 text-muted-foreground hover:bg-muted hover:text-foreground"
+                  }`}
+                >
+                  {year}
+                </button>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
