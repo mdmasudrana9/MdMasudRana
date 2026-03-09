@@ -78,41 +78,55 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Right Side - Tech Stack Visual */}
+          {/* Right Side - 3D Tech Stack Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.7 }}
             className="flex-shrink-0 hidden lg:flex items-center justify-center"
+            style={{ perspective: "1000px" }}
           >
-            <div className="relative w-[350px] h-[350px]">
+            <motion.div
+              className="relative w-[350px] h-[350px]"
+              animate={{ rotateY: [0, 8, 0, -8, 0], rotateX: [0, -5, 0, 5, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+              style={{ transformStyle: "preserve-3d" }}
+            >
               {/* Isometric grid glow */}
               <div className="absolute inset-0 rounded-2xl bg-primary/5 blur-[60px]" />
-              <div className="relative w-full h-full grid grid-cols-3 grid-rows-3 gap-3 p-4">
+              <div className="relative w-full h-full grid grid-cols-3 grid-rows-3 gap-3 p-4" style={{ transformStyle: "preserve-3d" }}>
                 {[
-                  { label: "React", emoji: "⚛️" },
-                  { label: "Node.js", emoji: "🟢" },
-                  { label: "Next.js", emoji: "▲" },
-                  { label: "TypeScript", emoji: "🔷" },
-                  { label: "MongoDB", emoji: "🍃" },
-                  { label: "Express", emoji: "⚡" },
-                  { label: "Tailwind", emoji: "🎨" },
-                  { label: "PostgreSQL", emoji: "🐘" },
-                  { label: "Docker", emoji: "🐳" },
+                  { label: "React", emoji: "⚛️", z: 30 },
+                  { label: "Node.js", emoji: "🟢", z: 50 },
+                  { label: "Next.js", emoji: "▲", z: 20 },
+                  { label: "TypeScript", emoji: "🔷", z: 45 },
+                  { label: "MongoDB", emoji: "🍃", z: 60 },
+                  { label: "Express", emoji: "⚡", z: 35 },
+                  { label: "Tailwind", emoji: "🎨", z: 25 },
+                  { label: "PostgreSQL", emoji: "🐘", z: 40 },
+                  { label: "Docker", emoji: "🐳", z: 55 },
                 ].map((tech, i) => (
                   <motion.div
                     key={tech.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.8 + i * 0.1 }}
-                    className="flex flex-col items-center justify-center rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-default"
+                    initial={{ opacity: 0, y: 40, rotateX: -30 }}
+                    animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                    transition={{ delay: 0.8 + i * 0.12, type: "spring", stiffness: 100 }}
+                    whileHover={{ scale: 1.15, z: 80, boxShadow: "0 20px 40px -10px hsl(127 50% 58% / 0.3)" }}
+                    className="flex flex-col items-center justify-center rounded-xl border border-border/50 bg-card/50 backdrop-blur-sm hover:border-primary/50 hover:bg-primary/5 transition-colors duration-300 cursor-default"
+                    style={{ transform: `translateZ(${tech.z}px)`, transformStyle: "preserve-3d" }}
                   >
-                    <span className="text-2xl mb-1">{tech.emoji}</span>
+                    <motion.span
+                      className="text-2xl mb-1"
+                      animate={{ y: [0, -4, 0] }}
+                      transition={{ duration: 2 + i * 0.3, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      {tech.emoji}
+                    </motion.span>
                     <span className="text-[10px] text-muted-foreground font-medium">{tech.label}</span>
                   </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
