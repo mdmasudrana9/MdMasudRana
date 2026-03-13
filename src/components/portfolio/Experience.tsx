@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { experiences } from "@/data/experience";
 import { MapPin, Calendar } from "lucide-react";
+import { useTheme } from "@/hooks/useTheme";
 
 const Experience = () => {
+  const { theme, toggleTheme } = useTheme();
   return (
-    <section id="experience" className="py-24">
+    <section id="experience" className="py-20 bg-primary/5">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -12,14 +14,19 @@ const Experience = () => {
           viewport={{ once: true }}
         >
           <p className="font-mono text-sm text-primary mb-2">{"// Career"}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-12">
+          <h2 className="text-3xl sm:text-4xl font-semibold mb-12">
             Work <span className="gradient-text">Experience</span>
           </h2>
         </motion.div>
 
         <div className="relative space-y-8">
           {/* Timeline line */}
-          <div className="absolute left-[15px] top-2 bottom-2 w-px bg-border hidden md:block" />
+          {}
+          <div
+            className={`absolute left-[15px] top-2 bottom-2 w-px ${
+              theme === "dark" ? "bg-white" : "bg-border"
+            } hidden md:block`}
+          />
 
           {experiences.map((exp, i) => (
             <motion.div
@@ -31,22 +38,42 @@ const Experience = () => {
               className="relative md:pl-12"
             >
               {/* Timeline dot */}
-              <div className="absolute left-[11px] top-6 w-2 h-2 rounded-full bg-primary hidden md:block" />
-
+              {/* <div className="absolute left-[11px] top-6 w-2 h-2 rounded-full bg-primary hidden md:block" /> */}
+              <div className="absolute left-[4px] top-5 w-6 h-6 rounded-full border-2 border-border  items-center justify-center hidden md:flex">
+                <div
+                  className={`w-2 h-2 rounded-full ${
+                    theme === "dark" ? "bg-white" : "bg-primary"
+                  }`}
+                />
+              </div>
               <div className="card-glass p-6">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">{exp.position}</h3>
-                    <p className="text-sm font-medium text-primary">{exp.company}</p>
+                    <h3 className="text-lg font-bold text-foreground">
+                      {exp.position}
+                    </h3>
+                    <a href={exp.url} className="flex mt-2 items-center gap-2">
+                      <img className="w-10 h-10" src={exp.logo} />
+                      <p className="text-sm hover:text-muted-foreground font-semibold text-primary">
+                        {exp.company}
+                      </p>
+                    </a>
                   </div>
                   <div className="flex flex-col items-start sm:items-end gap-1 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1"><Calendar size={12} /> {exp.duration}</span>
-                    <span className="flex items-center gap-1"><MapPin size={12} /> {exp.location}</span>
+                    <span className="flex items-center gap-1">
+                      <Calendar size={12} /> {exp.duration}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <MapPin size={12} /> {exp.location}
+                    </span>
                   </div>
                 </div>
                 <ul className="space-y-1.5">
                   {exp.responsibilities.map((r) => (
-                    <li key={r} className="text-sm text-muted-foreground flex items-start gap-2">
+                    <li
+                      key={r}
+                      className="text-sm text-muted-foreground flex items-start gap-2"
+                    >
                       <span className="text-primary mt-0.5">▸</span> {r}
                     </li>
                   ))}

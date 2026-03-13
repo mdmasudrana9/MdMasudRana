@@ -9,18 +9,20 @@ const GitHubCalendar = () => {
   const [selectedYear, setSelectedYear] = useState<number>(currentYear);
 
   return (
-    <section id="github" className="py-24">
+    <section id="github" className=" bg-primary/5 ">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="font-mono text-sm text-primary mb-2">{"// Open Source"}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+          <p className="font-mono text-sm text-primary mb-2">
+            {"// Open Source"}
+          </p>
+          <h2 className="md:text-4xl text-3xl font-semibold mb-4">
             GitHub <span className="gradient-text">Contributions</span>
           </h2>
-          <p className="text-muted-foreground text-sm mb-8 flex items-center gap-2">
+          <p className="text-muted-foreground text-sm mb-4 flex items-center gap-2">
             <Github size={16} />
             <a
               href="https://github.com/mdmasudrana9"

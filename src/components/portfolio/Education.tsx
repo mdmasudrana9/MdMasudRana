@@ -16,15 +16,17 @@ const educationData = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-24">
+    <section id="education" className="pt-28 mb-20">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="font-mono text-sm text-primary mb-2">{"// Education"}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8">
+          <p className="font-mono text-sm text-primary mb-2">
+            {"// Education"}
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-semibold mb-8">
             Academic <span className="gradient-text">Background</span>
           </h2>
         </motion.div>
@@ -44,8 +46,12 @@ const Education = () => {
                   <GraduationCap size={24} />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-lg font-semibold text-foreground">{edu.degree}</h3>
-                  <p className="text-sm text-muted-foreground">{edu.institution}</p>
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {edu.degree}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {edu.institution}
+                  </p>
                   <div className="flex items-center gap-1.5 text-xs text-primary/80 pt-1">
                     <Calendar size={12} />
                     <span>{edu.duration}</span>

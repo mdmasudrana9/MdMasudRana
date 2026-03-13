@@ -49,78 +49,23 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24">
+    <section id="skills" className="pb-6 pt-10">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="font-mono text-sm text-primary mb-2">{"// Tech Stack"}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-16">
+          <p className="font-mono text-sm text-primary mb-2">
+            {"// Tech Stack"}
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-semibold mb-16">
             Skills & <span className="gradient-text">Technologies</span>
           </h2>
         </motion.div>
 
-        <div className="relative flex items-center justify-center min-h-[520px] sm:min-h-[780px]">
-          {/* Center icon */}
-          <motion.div
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="relative z-10 flex h-16 w-16 sm:h-24 sm:w-24 items-center justify-center rounded-full border-2 border-primary/40 bg-background glow-effect"
-          >
-            <span className="text-2xl sm:text-3xl font-bold gradient-text">⚛</span>
-          </motion.div>
-
-          {/* Static orbit ring borders */}
-          {rings.map((ring, ri) => (
-            <div
-              key={ri}
-              className="absolute rounded-full border border-primary/10"
-              style={{ width: ring.radius * 2, height: ring.radius * 2 }}
-            />
-          ))}
-
-          {/* Rotating skill nodes */}
-          {rings.map((ring, ri) =>
-            ring.skills.map((skill, i) => {
-              const total = ring.skills.length;
-              const baseAngle = (i / total) * 360 - 90;
-              const angle = baseAngle + offsets[ri];
-              const rad = (angle * Math.PI) / 180;
-              const x = Math.cos(rad) * ring.radius;
-              const y = Math.sin(rad) * ring.radius;
-              const globalIndex =
-                (ri === 0 ? 0 : ri === 1 ? ring1.length : ring1.length + ring2.length) + i;
-              const colorClass = pastelColors[globalIndex % pastelColors.length];
-
-              return (
-                <div
-                  key={skill}
-                  className="absolute z-[5] cursor-default transition-transform duration-100"
-                  style={{
-                    left: `calc(50% + ${x}px)`,
-                    top: `calc(50% + ${y}px)`,
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  <span
-                    className={`inline-block whitespace-nowrap rounded-full shadow-sm font-semibold hover:shadow-md hover:scale-110 transition-all duration-200 ${colorClass} ${
-                      isMobile ? "px-2 py-1 text-[10px]" : "px-3 py-1.5 text-xs"
-                    }`}
-                  >
-                    {skill}
-                  </span>
-                </div>
-              );
-            })
-          )}
-        </div>
-
         {/* Category cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mt-16">
+        <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 mt-16">
           {skillCategories.map((cat, i) => (
             <motion.div
               key={cat.title}
@@ -130,7 +75,9 @@ const Skills = () => {
               transition={{ delay: i * 0.1 }}
               className="card-glass p-4 sm:p-6 hover-lift"
             >
-              <h3 className="font-mono text-xs sm:text-sm font-semibold text-primary mb-3 sm:mb-4">{cat.title}</h3>
+              <h3 className="font-mono text-xs sm:text-sm font-semibold text-primary mb-3 sm:mb-4">
+                {cat.title}
+              </h3>
               <div className="flex flex-wrap gap-1.5 sm:gap-2">
                 {cat.skills.map((skill, si) => (
                   <span

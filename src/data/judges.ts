@@ -19,9 +19,9 @@ export const judgeProfiles: JudgeProfile[] = [
   {
     platform: "Codeforces",
     username: "masudrana",
-    profileUrl: "https://codeforces.com/profile/masudrana",
+    profileUrl: "https://codeforces.com/profile/rana.cse6.bu",
     solved: 180,
-    rating: 1200,
+    rating: 1375,
     color: "hsl(210, 100%, 56%)",
   },
   {
@@ -30,6 +30,14 @@ export const judgeProfiles: JudgeProfile[] = [
     profileUrl: "https://hackerrank.com/masudrana",
     solved: 120,
     color: "hsl(145, 63%, 42%)",
+  },
+  {
+    platform: "CodeChef",
+    username: "masudrana",
+    profileUrl: "https://codeforces.com/profile/rana.cse6.bu",
+    solved: 180,
+    rating: 943,
+    color: "hsl(210, 100%, 56%)",
   },
   {
     platform: "Beecrowd",

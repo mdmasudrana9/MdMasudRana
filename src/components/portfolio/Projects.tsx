@@ -2,24 +2,28 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/data/projects";
 import { ExternalLink } from "lucide-react";
+import { useTheme } from "@/hooks/useTheme";
 
 const categories = ["All", ...new Set(projects.map((p) => p.category))];
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
-
-  const filtered = filter === "All" ? projects : projects.filter((p) => p.category === filter);
+  const { theme, toggleTheme } = useTheme();
+  const filtered =
+    filter === "All" ? projects : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="md:py-24 mt-4 bg-primary/5">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="font-mono text-sm text-primary mb-2">{"// Portfolio"}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-8">
+          <p className="font-mono pt-5 md:pt-0 text-sm text-primary mb-2">
+            {"// Portfolio"}
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-semibold mb-8">
             Featured <span className="gradient-text">Projects</span>
           </h2>
         </motion.div>
@@ -33,7 +37,7 @@ const Projects = () => {
               className={`rounded-lg px-4 py-2 text-xs font-medium transition-colors ${
                 filter === cat
                   ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                  : "bg-secondary card-glass text-secondary-foreground hover:bg-secondary/80"
               }`}
             >
               {cat}
@@ -55,14 +59,24 @@ const Projects = () => {
                 className="card-glass p-6 hover-lift flex flex-col"
               >
                 <div className="flex items-start justify-between mb-3">
-                  <h3 className="text-lg font-bold text-foreground">{project.name}</h3>
-                  <ExternalLink size={16} className="text-muted-foreground mt-1 shrink-0" />
+                  <h3 className="text-lg font-bold text-foreground">
+                    {project.name}
+                  </h3>
+                  <ExternalLink
+                    size={16}
+                    className="text-muted-foreground mt-1 shrink-0"
+                  />
                 </div>
-                <p className="text-sm text-muted-foreground mb-4 flex-1">{project.description}</p>
+                <p className="text-sm text-muted-foreground mb-4 flex-1">
+                  {project.description}
+                </p>
 
                 <ul className="mb-4 space-y-1">
                   {project.features.map((f) => (
-                    <li key={f} className="text-xs text-muted-foreground flex items-start gap-2">
+                    <li
+                      key={f}
+                      className="text-xs text-muted-foreground flex items-start gap-2"
+                    >
                       <span className="text-primary mt-0.5">▸</span> {f}
                     </li>
                   ))}
@@ -70,7 +84,10 @@ const Projects = () => {
 
                 <div className="flex flex-wrap gap-1.5 mt-auto pt-4 border-t border-border">
                   {project.techStack.map((tech) => (
-                    <span key={tech} className="rounded bg-primary/10 px-2 py-0.5 text-[10px] font-mono text-primary">
+                    <span
+                      key={tech}
+                      className="rounded bg-primary/10 px-2 py-0.5 text-[10px] font-mono text-primary"
+                    >
                       {tech}
                     </span>
                   ))}
@@ -79,6 +96,41 @@ const Projects = () => {
             ))}
           </AnimatePresence>
         </div>
+        {/* Coming Soon Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex justify-center mt-12"
+        >
+          <div
+            className={`inline-flex items-center gap-3 px-8 py-3 rounded-full border ${
+              theme === "dark"
+                ? "border-white/20 bg-white/5"
+                : "border-primary/20 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10"
+            }`}
+          >
+            <span
+              className={`w-2 h-2 rounded-full animate-pulse-glow ${
+                theme === "dark" ? "bg-white" : "bg-primary"
+              }`}
+            />
+
+            <span
+              className={`text-sm font-medium animate-pulse-glow ${
+                theme === "dark" ? "text-white/80" : "text-primary/80"
+              }`}
+            >
+              More projects coming soon...
+            </span>
+
+            <span
+              className={`w-2 h-2 rounded-full animate-pulse-glow ${
+                theme === "dark" ? "bg-white" : "bg-primary"
+              }`}
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

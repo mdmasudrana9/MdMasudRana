@@ -3,18 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import { Link, useLocation } from "react-router-dom";
-import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "About", href: "/about" },
-  { label: "Skills", href: "/skills" },
   { label: "Projects", href: "/projects" },
-  { label: "Experience", href: "/experience" },
-  { label: "Education", href: "/education" },
   { label: "Blog", href: "/blog" },
   { label: "Courses", href: "/courses" },
-  { label: "Judges", href: "/judges" },
-  { label: "GitHub", href: "/github" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -28,12 +22,20 @@ const Navbar = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl"
+      className="fixed top-0 py-2 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl"
     >
       <div className="section-container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="MR Logo" className="h-8 w-8 rounded" />
-          <span className="font-mono text-lg font-bold text-primary">MR</span>
+        <Link to="/" className="flex items-center mt-2 gap-2">
+          <img
+            src={
+              theme === "dark"
+                ? "/public/assets/fabicon1.png"
+                : "/public/assets/logo.png"
+            }
+            alt="MR Logo"
+            className="h-7 w-12 rounded"
+          />
+          {/* <span className="font-mono text-lg font-bold text-primary">MR</span> */}
         </Link>
 
         {/* Desktop */}
@@ -45,7 +47,7 @@ const Navbar = () => {
                 className={`text-sm transition-colors duration-200 ${
                   location.pathname === link.href
                     ? "text-primary font-semibold"
-                    : "text-muted-foreground hover:text-primary"
+                    : "text-muted-foreground  hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -64,9 +66,17 @@ const Navbar = () => {
           <li>
             <Link
               to="/contact"
-              className="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
+              className="group relative inline-flex items-center overflow-hidden rounded-lg px-4 py-2 text-sm font-medium text-white  transition-all"
             >
-              Hire Me
+              <span
+                className="absolute inset-[-2px] rounded-lg animate-spin-slow"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--background)), hsl(var(--primary)), hsl(var(--background)), hsl(var(--primary)))",
+                }}
+              />
+              <span className="absolute inset-[2px] rounded-md bg-primary z-[1]" />
+              <span className="relative z-[2] ">Hire Me</span>
             </Link>
           </li>
         </ul>
@@ -97,7 +107,7 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden overflow-hidden border-b border-border bg-background"
+            className="md:hidden overflow-hidden  border-border bg-background"
           >
             <ul className="flex flex-col gap-4 p-6">
               {navLinks.map((link) => (
@@ -108,7 +118,7 @@ const Navbar = () => {
                     className={`text-sm transition-colors ${
                       location.pathname === link.href
                         ? "text-primary font-semibold"
-                        : "text-muted-foreground hover:text-primary"
+                        : "text-muted-foreground  hover:text-primary"
                     }`}
                   >
                     {link.label}
