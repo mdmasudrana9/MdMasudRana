@@ -27,11 +27,7 @@ const Navbar = () => {
       <div className="section-container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center mt-2 gap-2">
           <img
-            src={
-              theme === "dark"
-                ? "/public/assets/fabicon1.png"
-                : "/public/assets/logo.png"
-            }
+            src={theme === "dark" ? "/assets/fabicon1.png" : "/assets/logo.png"}
             alt="MR Logo"
             className="h-7 w-12 rounded"
           />
