@@ -79,8 +79,8 @@ const Hero = () => {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="text-3xl  sm:text-4xl md:text-4xl font-semibold tracking-tight mb-6 leading-tight"
               >
-                Full-Stack Developer -{" "}
-                <span className="gradient-text">JavaScript Enthusiast</span>
+                Full-Stack
+                <span className="gradient-text"> Developer</span>
               </motion.h2>
 
               <motion.div

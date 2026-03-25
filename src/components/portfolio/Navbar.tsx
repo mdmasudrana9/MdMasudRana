@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const navLinks = [
@@ -75,6 +75,7 @@ const Navbar = () => {
               <span className="relative z-[2] ">Hire Me</span>
             </Link>
           </li>
+          <li></li>
         </ul>
 
         {/* Mobile toggle */}
