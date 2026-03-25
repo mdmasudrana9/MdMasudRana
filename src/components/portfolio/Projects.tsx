@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/data/projects";
 import { ExternalLink } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
+import { Link } from "react-router-dom";
 
 const categories = ["All", ...new Set(projects.map((p) => p.category))];
 
@@ -62,10 +63,12 @@ const Projects = () => {
                   <h3 className="text-lg font-bold text-foreground">
                     {project.name}
                   </h3>
-                  <ExternalLink
-                    size={16}
-                    className="text-muted-foreground mt-1 shrink-0"
-                  />
+                  <Link to={project.liveLink}>
+                    <ExternalLink
+                      size={16}
+                      className="text-muted-foreground mt-1 shrink-0"
+                    />
+                  </Link>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4 flex-1">
                   {project.description}
