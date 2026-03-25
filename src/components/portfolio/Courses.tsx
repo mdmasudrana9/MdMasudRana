@@ -4,7 +4,7 @@ import { BookOpen, Award, Calendar } from "lucide-react";
 
 const Courses = () => {
   return (
-    <section id="courses" className="md:py-24 h-[80vh] mt-4 bg-primary/5">
+    <section id="courses" className="md:py-24 h-auto  mt-4 bg-primary/5">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

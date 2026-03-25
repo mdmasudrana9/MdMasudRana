@@ -49,7 +49,7 @@ const socialLinks = [
 const Hero = () => {
   return (
     <div>
-      <section className="relative flex md:h-[70vh] h-screen items-center overflow-hidden md:pt-16 pt-28 bg-primary/5">
+      <section className="relative flex md:h-[70vh]  items-center overflow-hidden md:pt-16 pt-28 bg-primary/5">
         {/* Background grid */}
 
         <div
