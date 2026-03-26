@@ -19,7 +19,7 @@ const Courses = () => {
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-6 mb-12">
           {courses.map((course, i) => (
             <motion.div
               key={course.title}

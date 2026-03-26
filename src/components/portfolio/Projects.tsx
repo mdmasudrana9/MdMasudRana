@@ -109,7 +109,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex justify-center mt-12"
+          className="flex justify-center my-12"
         >
           <div
             className={`inline-flex items-center gap-3 px-8 py-3 rounded-full border ${
