@@ -1,7 +1,16 @@
 import { motion } from "framer-motion";
-import { MapPin, Code2, Briefcase, Layers, Download } from "lucide-react";
+import {
+  MapPin,
+  Code2,
+  Briefcase,
+  Layers,
+  Download,
+  Calendar,
+} from "lucide-react";
 import Education from "./Education";
 import Skills from "./Skills";
+import { FaCalendar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 // import masudImg from "@/assets/masud-rana.png";
 
 const About = () => {
@@ -48,6 +57,12 @@ const About = () => {
                     <Download size={16} />
                   </div>
                 </div>
+
+                <Link to="https://zcal.co/mdmasudrana/60min">
+                  <button className="card-glass mt-3 flex items-center cursor-pointer justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors  w-full text-xs p-4">
+                    <p>Schedule A Meeting</p> <FaCalendar size={16} />
+                  </button>
+                </Link>
               </div>
             </motion.div>
 
@@ -67,12 +82,10 @@ const About = () => {
                   Md Masud Rana
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Full-Stack Developer focused on building fast and scalable web
-                  applications using React, Next.js, TypeScript, and Tailwind
-                  CSS. Experienced with Node.js, Express.js, and Prisma for
-                  backend development. I love learning new technologies and
-                  creating meaningful solutions. Let’s connect:
-                  rana.cse6.bu@gmail.com
+                  Full-Stack Developer specializing in React, Next.js,
+                  TypeScript, and Tailwind. Skilled in Node.js, Express, and
+                  Prisma. Passionate about building scalable apps. Let’s
+                  connect: rana.cse6.bu@gmail.com
                 </p>
               </div>
 

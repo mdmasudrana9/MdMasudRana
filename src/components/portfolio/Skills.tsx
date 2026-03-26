@@ -65,7 +65,7 @@ const Skills = () => {
         </motion.div>
 
         {/* Category cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 mt-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 mt-16">
           {skillCategories.map((cat, i) => (
             <motion.div
               key={cat.title}
@@ -82,7 +82,7 @@ const Skills = () => {
                 {cat.skills.map((skill, si) => (
                   <span
                     key={skill}
-                    className={`rounded-full px-2 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium ${pastelColors[(i * 4 + si) % pastelColors.length]}`}
+                    className={`rounded-full px-2 sm:px-3 py-1 sm:py-1.5 text-xs font-medium ${pastelColors[(i * 4 + si) % pastelColors.length]}`}
                   >
                     {skill}
                   </span>
