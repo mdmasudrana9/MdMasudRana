@@ -43,7 +43,7 @@ const About = () => {
               className="flex md:justify-start justify-center"
             >
               <div className="relative w-full h-full ">
-                <div className="absolute -inset-3 rounded-2xl bg-primary/10 blur-2xl" />
+                <div className="absolute -inset-3 rounded-2xl bg-primary/10 blur-2xl pointer-events-none" />
                 <img
                   src="/assets/masud-rana.png"
                   alt="Md Masud Rana"
@@ -58,11 +58,15 @@ const About = () => {
                   </div>
                 </div>
 
-                <Link to="https://zcal.co/mdmasudrana/60min">
-                  <button className="card-glass mt-3 flex items-center cursor-pointer justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors  w-full text-xs p-4">
+                <a
+                  href="https://zcal.co/mdmasudrana/60min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="card-glass mt-3 flex items-center cursor-pointer justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors w-full text-xs p-4">
                     <p>Schedule A Meeting</p> <FaCalendar size={16} />
                   </button>
-                </Link>
+                </a>
               </div>
             </motion.div>
 
