@@ -1,16 +1,9 @@
 import { motion } from "framer-motion";
-import {
-  MapPin,
-  Code2,
-  Briefcase,
-  Layers,
-  Download,
-  Calendar,
-} from "lucide-react";
+import { Briefcase, Code2, Download, Layers, MapPin } from "lucide-react";
+import { FaCalendar } from "react-icons/fa";
+import { FaUpwork } from "react-icons/fa6";
 import Education from "./Education";
 import Skills from "./Skills";
-import { FaCalendar } from "react-icons/fa";
-import { Link } from "react-router-dom";
 // import masudImg from "@/assets/masud-rana.png";
 
 const About = () => {
@@ -58,15 +51,24 @@ const About = () => {
                   </div>
                 </div>
 
-                <a
-                  href="https://zcal.co/mdmasudrana/60min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <button className="card-glass mt-3 flex items-center cursor-pointer justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors w-full text-xs p-4">
-                    <p>Schedule A Meeting</p> <FaCalendar size={16} />
-                  </button>
-                </a>
+                <div className="flex  items-center gap-2">
+                  <a
+                    href="https://zcal.co/mdmasudrana/60min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="card-glass mt-3 flex items-center cursor-pointer justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors w-full text-xs p-4">
+                      <p>Schedule A Meeting</p>{" "}
+                      <FaCalendar className="text-green-600" size={14} />
+                    </button>
+                  </a>
+                  <a href="/" target="_blank" rel="noopener noreferrer">
+                    <button className="card-glass mt-3 flex items-center cursor-pointer justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors w-full text-xs p-4">
+                      <p>Hire in UpWork</p>
+                      <FaUpwork size={15} className="text-green-600" />
+                    </button>
+                  </a>
+                </div>
               </div>
             </motion.div>
 
