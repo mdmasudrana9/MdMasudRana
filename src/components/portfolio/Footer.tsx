@@ -2,7 +2,7 @@ import { Facebook, Github, Linkedin, Mail, Twitter, X } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border mt-10 py-20 bg-primary/5">
+    <footer className="border-t border-border  py-20 bg-primary/5">
       <div className="section-container flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="font-mono text-sm text-muted-foreground">
           © {new Date().getFullYear()} Md Masud Rana
