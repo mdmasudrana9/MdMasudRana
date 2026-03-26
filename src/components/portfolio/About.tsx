@@ -1,3 +1,4 @@
+import usePageTitle from "@/hooks/usePageTitle";
 import { motion } from "framer-motion";
 import { Briefcase, Code2, Download, Layers, MapPin } from "lucide-react";
 import { FaCalendar } from "react-icons/fa";
@@ -7,6 +8,7 @@ import Skills from "./Skills";
 // import masudImg from "@/assets/masud-rana.png";
 
 const About = () => {
+  usePageTitle("Md Masud Rana - About");
   return (
     <div className="bg-primary/5 mb-5">
       <section id="about" className="md:py-24 mt-4">

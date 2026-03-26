@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { courses } from "@/data/courses";
 import { BookOpen, Award, Calendar } from "lucide-react";
+import usePageTitle from "@/hooks/usePageTitle";
 
 const Courses = () => {
+  usePageTitle("Md Masud Rana - Courses");
   return (
     <section id="courses" className="md:py-24 h-auto  mt-4 bg-primary/5">
       <div className="section-container">

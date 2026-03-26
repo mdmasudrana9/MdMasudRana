@@ -2,8 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, Github, Linkedin, Send, Facebook } from "lucide-react";
 import { toast } from "sonner";
+import usePageTitle from "@/hooks/usePageTitle";
 
 const Contact = () => {
+  usePageTitle("Md Masud Rana - Contact");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = async (e: React.FormEvent) => {

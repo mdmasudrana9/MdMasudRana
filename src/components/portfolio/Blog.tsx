@@ -3,9 +3,11 @@ import { Calendar, Clock, ArrowUpRight } from "lucide-react";
 import { blogPosts } from "@/data/blog";
 import { Link } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
+import usePageTitle from "@/hooks/usePageTitle";
 
 const Blog = () => {
   const { theme, toggleTheme } = useTheme();
+  usePageTitle("Md Masud Rana - Blog");
   return (
     <section id="blog" className="md:py-24 mt-4 bg-primary/5">
       <div className="section-container">

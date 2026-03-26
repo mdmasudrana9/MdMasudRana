@@ -16,6 +16,7 @@ import GitHubCalendar from "./GitHubCalendar";
 import Experience from "./Experience";
 import OnlineJudge from "./OnlineJudge";
 import WhatsAppChat from "./WhatsAppChat";
+import usePageTitle from "@/hooks/usePageTitle";
 
 const socialLinks = [
   { icon: Github, label: "GitHub", href: "https://github.com/mdmasudrana9" },
@@ -47,6 +48,7 @@ const socialLinks = [
 ];
 
 const Hero = () => {
+  usePageTitle("Md Masud Rana - Full-Stack Developer");
   return (
     <div>
       <section className="relative flex md:h-[70vh]  items-center overflow-hidden md:pt-16 pt-28 bg-primary/5">

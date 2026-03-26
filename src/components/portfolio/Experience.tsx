@@ -68,6 +68,8 @@ const Experience = () => {
                     </span>
                   </div>
                 </div>
+
+                <p className="mb-3">{exp.description}</p>
                 <ul className="space-y-1.5">
                   {exp.responsibilities.map((r) => (
                     <li

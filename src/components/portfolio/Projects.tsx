@@ -4,6 +4,7 @@ import { projects } from "@/data/projects";
 import { ExternalLink } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import { Link } from "react-router-dom";
+import usePageTitle from "@/hooks/usePageTitle";
 
 const categories = ["All", ...new Set(projects.map((p) => p.category))];
 
@@ -12,6 +13,7 @@ const Projects = () => {
   const { theme, toggleTheme } = useTheme();
   const filtered =
     filter === "All" ? projects : projects.filter((p) => p.category === filter);
+  usePageTitle("Md Masud Rana - Projects");
 
   return (
     <section id="projects" className="md:py-24 mt-4 bg-primary/5">

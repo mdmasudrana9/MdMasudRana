@@ -6,6 +6,7 @@ export interface Experience {
   duration: string;
   responsibilities: string[];
   url: string;
+  description?: string;
 }
 
 export const experiences: Experience[] = [
@@ -16,6 +17,8 @@ export const experiences: Experience[] = [
     position: "Full Stack Developer",
     location: "Barishal, Bangladesh (Onsite)",
     duration: "Feb 2025 – Present",
+    description:
+      "At UNIPIXER, I serve as a Full Stack Developer, building scalable and high-performance web applications using the MERN stack with PostgreSQL integration. I contribute to designing robust backend systems, developing RESTful APIs, implementing secure authentication, and optimizing frontend performance and SEO. I collaborate with cross-functional teams to deliver reliable, user-focused, and production-ready digital solutions.",
     responsibilities: [
       "Developing scalable full-stack web applications using MERN Stack (React.js, Node.js, Express.js, MongoDB) with PostgreSQL integration.",
       "Building and maintaining RESTful APIs for web applications and third-party service integrations.",
@@ -32,6 +35,8 @@ export const experiences: Experience[] = [
     position: "Next.js React Developer",
     location: "Singapore (Remote)",
     duration: "Jun 2024 – Jan 2025",
+    description:
+      "At NEXSTACK, I worked as a Next.js React Developer, building high-performance and scalable web applications using Next.js and React.js. I focused on implementing server-side rendering (SSR), SEO optimization, and modern frontend architecture. I developed reusable UI components, ensured responsive design across all devices, and collaborated closely with backend developers and designers to deliver fast, accessible, and user-friendly web experiences.",
     responsibilities: [
       "Developed high-performance web applications using Next.js and React.js with modern frontend architecture.",
       "Built reusable and scalable UI components following best practices in component-based development.",
@@ -47,6 +52,8 @@ export const experiences: Experience[] = [
     position: "Junior Software Engineer",
     location: "Dhaka, Bangladesh (Remote)",
     duration: "Oct 2023 – May 2024",
+    description:
+      "At SOFTKARROT, I worked as a Junior Software Engineer, contributing to the development and maintenance of scalable web applications using React.js, Node.js, and MongoDB. I assisted in system architecture design with a focus on performance, scalability, and security. I was involved in debugging, testing, and optimizing applications while ensuring responsive UI and cross-browser compatibility. I also collaborated with senior engineers and designers to implement features and improve overall user experience.",
     responsibilities: [
       "Developed and maintained scalable web applications using modern technologies including React.js, Node.js, and MongoDB.",
       "Assisted in designing system architecture focused on performance, scalability, and security.",
