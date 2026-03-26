@@ -5,8 +5,8 @@ const Footer = () => {
     <footer className="border-t border-border  py-20 bg-primary/5">
       <div className="section-container flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="font-mono text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Md Masud Rana
-          <span className="block sm:inline">. All rights reserved.</span>
+          © {new Date().getFullYear()} Md Masud Rana.
+          <span className="block sm:inline">All rights reserved.</span>
         </p>
         <div className="flex items-center gap-4">
           {[
