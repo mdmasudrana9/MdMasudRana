@@ -21,7 +21,7 @@ const WhatsAppChat = () => {
           {/* Header */}
           <div style={styles.header}>
             <div style={styles.profile}>
-              <img src="/public/assets/masud-rana.png" style={styles.avatar} />
+              <img src="/assets/masud-rana.png" style={styles.avatar} />
               <div>
                 <div style={styles.name}>Md Masud Rana</div>
                 <div style={styles.status}>Typically replies within 1 hour</div>
