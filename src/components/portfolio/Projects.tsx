@@ -80,6 +80,7 @@ const Projects = () => {
                     src={project.image}
                     alt={project.name}
                     className="w-full h-40 object-cover rounded-md mb-3"
+                    loading="lazy"
                   />
                   <p className="text-sm text-muted-foreground mb-4 flex-1">
                     {project.description}

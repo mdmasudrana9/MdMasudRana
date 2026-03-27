@@ -43,6 +43,7 @@ const About = () => {
                   src="/assets/masud-rana.png"
                   alt="Md Masud Rana"
                   className="    w-full h-full object-cover rounded-2xl border-2 border-border shadow-lg"
+                  loading="lazy"
                 />
                 <div className="flex gap-2 mt-4  justify-center items-center">
                   <button className="card-glass hover:text-primary hover:border-primary/50 transition-colors  w-full text-xs p-4">
