@@ -16,6 +16,10 @@ const Index = () => {
           name="keywords"
           content="Md Masud Rana, Full-Stack Developer, Portfolio, Frontend Developer, Next.js Developer"
         />
+        <meta
+          name="google-site-verification"
+          content="sMmA4CeRfaX9YSmxtzhEL3zPtCmczScGsZIi_xRuHJQ"
+        />
       </Helmet>
       <Navbar />
       <Hero />
