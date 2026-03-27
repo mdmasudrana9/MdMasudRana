@@ -79,7 +79,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-3xl  sm:text-4xl md:text-4xl font-semibold tracking-tight mb-6 leading-tight"
+                className=" tracking-tight  text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight font-mono"
               >
                 Full-Stack
                 <span className="gradient-text"> Developer</span>
@@ -89,7 +89,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="mb-2 text-base text-muted-foreground"
+                className=" text-muted-foreground leading-relaxed text-[15px]"
               >
                 Full-stack developer Working with{" "}
                 <span className="text-primary font-semibold">
@@ -106,7 +106,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="text-base text-muted-foreground mb-8"
+                className="text-muted-foreground leading-relaxed text-[15px] mb-6"
               >
                 I love crafting fast, scalable digital products — Let’s
                 collaborate! ✨

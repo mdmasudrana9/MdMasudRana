@@ -53,7 +53,7 @@ const Contact = () => {
           <p className="font-mono pt-5 md:pt-0 text-sm text-primary mb-2">
             {"// Get in Touch"}
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-foreground mb-4 leading-tight font-mono">
             Contact <span className="gradient-text">Me</span>
           </h2>
         </motion.div>

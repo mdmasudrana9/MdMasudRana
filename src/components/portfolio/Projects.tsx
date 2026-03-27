@@ -26,7 +26,7 @@ const Projects = () => {
           <p className="font-mono pt-5 md:pt-0 text-sm text-primary mb-2">
             {"// Portfolio"}
           </p>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-foreground mb-4 leading-tight font-mono">
             Featured <span className="gradient-text">Projects</span>
           </h2>
         </motion.div>
@@ -66,7 +66,7 @@ const Projects = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-lg font-bold text-foreground">
+                    <h3 className="text-lg font-bold text-foreground font-mono">
                       {project.name}
                     </h3>
                     <Link to={project.liveUrl}>

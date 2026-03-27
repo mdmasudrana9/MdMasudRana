@@ -20,7 +20,7 @@ const Blog = () => {
           <p className="font-mono pt-5 md:pt-0 text-sm text-primary mb-2">
             {"// Blog"}
           </p>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-10">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-foreground mb-4 leading-tight font-mono">
             Latest <span className="gradient-text">Articles</span>
           </h2>
         </motion.div>
@@ -50,7 +50,7 @@ const Blog = () => {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <h3 className="text-lg font-mono font-semibold text-foreground mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                   {post.title}
                   <ArrowUpRight
                     size={16}

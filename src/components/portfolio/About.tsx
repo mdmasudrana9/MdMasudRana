@@ -22,7 +22,7 @@ const About = () => {
             <p className="font-mono pt-5 md:pt-0 text-sm text-primary mb-2">
               {"// About Me"}
             </p>
-            <h2 className="text-3xl sm:text-4xl font-semibold mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground  leading-tight font-mono mb-8">
               Building the <span className="gradient-text">future</span> of the
               web
             </h2>
@@ -86,10 +86,10 @@ const About = () => {
                 <p className="font-mono text-sm text-primary mb-2">
                   {"// Hello, I'm"}
                 </p>
-                <h3 className="text-3xl sm:text-4xl font-semibold text-foreground mb-3">
+                <h3 className=" text-3xl sm:text-4xl lg:text-4xl font-bold text-foreground mb-2 leading-tight font-mono">
                   Md Masud Rana
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className=" text-muted-foreground leading-relaxed text-[15px]">
                   Full-Stack Developer specializing in React, Next.js,
                   TypeScript, and Tailwind. Skilled in Node.js, Express, and
                   Prisma. Passionate about building scalable apps. Let’s
