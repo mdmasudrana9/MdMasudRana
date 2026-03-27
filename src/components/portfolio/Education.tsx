@@ -46,7 +46,7 @@ const Education = () => {
                   <GraduationCap size={24} />
                 </div>
                 <div className="space-y-1">
-                  <h3 className="text-lg font-semibold text-foreground">
+                  <h3 className="text-lg font-semibold font-mono text-foreground">
                     {edu.degree}
                   </h3>
                   <p className="text-sm text-muted-foreground">
