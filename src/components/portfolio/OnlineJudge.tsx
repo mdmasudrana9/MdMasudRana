@@ -4,7 +4,7 @@ import { judgeProfiles } from "@/data/judges";
 
 const OnlineJudge = () => {
   return (
-    <section id="judges" className="py-28">
+    <section id="judges" className="py-28 bg-primary/5">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
