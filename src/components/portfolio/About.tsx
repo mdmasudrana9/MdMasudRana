@@ -45,13 +45,24 @@ const About = () => {
                   className="    w-full h-full object-cover rounded-2xl border-2 border-border shadow-lg"
                   loading="lazy"
                 />
-                <div className="flex gap-2 mt-4  justify-center items-center">
-                  <button className="card-glass hover:text-primary hover:border-primary/50 transition-colors  w-full text-xs p-4">
-                    Views Resume
-                  </button>
-                  <div className="card-glass cursor-pointer hover:text-primary hover:border-primary/50 transition-colors  text-xs p-4">
+                <div className="flex gap-2 mt-4 w-full  justify-center items-center">
+                  <a
+                    href="https://docs.google.com/document/d/1L4N9zsB6m9nL9VUf7_jzSkW2KxXqoPEH/edit"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full"
+                  >
+                    <button className="card-glass hover:text-primary hover:border-primary/50 transition-colors w-full text-xs p-4">
+                      View Resume
+                    </button>
+                  </a>
+                  <a
+                    href="/assets/Resume of Md Masud Rana.pdf"
+                    download="Md_Masud_Rana_Resume.pdf"
+                    className="card-glass cursor-pointer hover:text-primary hover:border-primary/50 transition-colors text-xs p-4 inline-flex items-center justify-center"
+                  >
                     <Download size={16} />
-                  </div>
+                  </a>
                 </div>
 
                 <div className="flex  items-center gap-2">
