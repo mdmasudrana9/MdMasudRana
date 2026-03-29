@@ -6,7 +6,7 @@ import { useTheme } from "@/hooks/useTheme";
 const Experience = () => {
   const { theme, toggleTheme } = useTheme();
   return (
-    <section id="experience" className="pt-28 bg-primary/5">
+    <section id="experience" className="py-20 bg-primary/5">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -122,6 +122,12 @@ const BlogDetailsPage = () => {
             className="blog-content"
           >
             <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:font-mono prose-headings:text-foreground prose-p:text-muted-foreground prose-p:leading-relaxed prose-strong:text-foreground prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none prose-pre:bg-card prose-pre:border prose-pre:border-border prose-pre:rounded-xl prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-li:text-muted-foreground prose-blockquote:border-primary prose-blockquote:text-muted-foreground prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-ul:my-4 prose-ol:my-4 prose-li:my-1">
+              <img
+                src={post.coverImage}
+                alt={post.title}
+                className="w-full h-[500px] object-cover rounded-md mb-3"
+                loading="lazy"
+              />
               <ReactMarkdown>{post.content}</ReactMarkdown>
             </div>
           </motion.div>

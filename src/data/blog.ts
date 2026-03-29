@@ -18,6 +18,8 @@ export const blogPosts: BlogPost[] = [
     readTime: "8 min",
     tags: ["Node.js", "Backend", "API"],
     slug: "scalable-apis-nodejs",
+    coverImage:
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1000",
     content: `
 ## Introduction
 
@@ -142,6 +144,8 @@ Building scalable APIs isn't about using the latest framework — it's about dis
     readTime: "12 min",
     tags: ["Next.js", "React", "Frontend"],
     slug: "nextjs-app-router-guide",
+    coverImage:
+      "https://images.unsplash.com/photo-1618477388954-7852f32655ec?auto=format&fit=crop&q=80&w=1000",
     content: `
 ## Introduction
 
@@ -261,6 +265,8 @@ The App Router is the future of Next.js. While the migration takes effort, the p
     readTime: "6 min",
     tags: ["React", "State Management"],
     slug: "redux-vs-zustand",
+    coverImage:
+      "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?auto=format&fit=crop&q=80&w=1000",
     content: `
 ## The State of State Management
 
@@ -377,6 +383,8 @@ That said, Redux with RTK Query is still an excellent choice for large teams tha
     readTime: "10 min",
     tags: ["MongoDB", "Database", "Backend"],
     slug: "mongodb-aggregation-tips",
+    coverImage:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1000",
     content: `
 ## Why Aggregation Pipelines?
 

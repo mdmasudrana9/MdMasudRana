@@ -17,6 +17,8 @@ import Experience from "./Experience";
 import OnlineJudge from "./OnlineJudge";
 import WhatsAppChat from "./WhatsAppChat";
 import usePageTitle from "@/hooks/usePageTitle";
+import ProjectsForHomePage from "./ProjectsForHomePage";
+import BlogForHomePage from "./BlogForHomePage";
 
 const socialLinks = [
   { icon: Github, label: "GitHub", href: "https://github.com/mdmasudrana9" },
@@ -141,9 +143,10 @@ const Hero = () => {
         </div>
       </section>
       <GitHubCalendar />
-
+      <ProjectsForHomePage />
       <Experience />
       <OnlineJudge />
+      <BlogForHomePage />
       <WhatsAppChat />
     </div>
   );
