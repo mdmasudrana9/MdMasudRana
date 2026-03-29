@@ -12,7 +12,7 @@ const ServicesExpertise = () => {
   usePageTitle("Md Masud Rana - Services & Expertise");
 
   return (
-    <section id="projects" className=" bg-primary/5 md:pb-24">
+    <section id="projects" className=" bg-primary/5 md:pb-24 pb-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
