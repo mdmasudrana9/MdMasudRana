@@ -19,6 +19,7 @@ import WhatsAppChat from "./WhatsAppChat";
 import usePageTitle from "@/hooks/usePageTitle";
 import ProjectsForHomePage from "./ProjectsForHomePage";
 import BlogForHomePage from "./BlogForHomePage";
+import ServicesExpertise from "./ServicesExpertise";
 
 const socialLinks = [
   { icon: Github, label: "GitHub", href: "https://github.com/mdmasudrana9" },
@@ -142,6 +143,7 @@ const Hero = () => {
           </div>
         </div>
       </section>
+      <ServicesExpertise />
       <GitHubCalendar />
       <ProjectsForHomePage />
       <Experience />

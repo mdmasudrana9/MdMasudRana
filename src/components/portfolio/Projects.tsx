@@ -16,7 +16,7 @@ const Projects = () => {
   usePageTitle("Md Masud Rana - Projects");
 
   return (
-    <section id="projects" className="md:py-24 mt-4 bg-primary/5">
+    <section id="services" className="md:py-24 mt-4 bg-primary/5">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
