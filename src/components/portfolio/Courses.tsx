@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
 import { courses } from "@/data/courses";
 import { BookOpen, Award, Calendar } from "lucide-react";
+import usePageTitle from "@/hooks/usePageTitle";
 
 const Courses = () => {
+  usePageTitle("Md Masud Rana - Courses");
   return (
     <section id="courses" className="md:py-24 h-auto  mt-4 bg-primary/5">
       <div className="section-container">
@@ -14,7 +16,7 @@ const Courses = () => {
           <p className="font-mono pt-5 md:pt-0 text-sm text-primary mb-2">
             {"// Learning"}
           </p>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-foreground mb-4 leading-tight font-mono">
             Courses & <span className="gradient-text">Certifications</span>
           </h2>
         </motion.div>
@@ -34,7 +36,7 @@ const Courses = () => {
                   <BookOpen size={20} />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-base font-bold text-foreground mb-1">
+                  <h3 className="text-[16px] font-mono font-bold text-foreground mb-1">
                     {course.title}
                   </h3>
                   <div className="flex items-center gap-3 text-xs text-muted-foreground mb-3">

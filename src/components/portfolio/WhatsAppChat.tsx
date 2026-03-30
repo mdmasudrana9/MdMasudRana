@@ -3,15 +3,20 @@ import { FaWhatsapp, FaPaperPlane } from "react-icons/fa";
 
 const WhatsAppChat = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const [message, setMessage] = useState<string>("");
 
   const phoneNumber = "8801703852464";
-  const defaultMessage = "Hello!";
 
   const sendMessage = () => {
+    if (!message.trim()) return;
+
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-      defaultMessage,
+      message,
     )}`;
+
     window.open(url, "_blank");
+
+    setMessage(""); // clear input after send
   };
 
   return (
@@ -21,7 +26,7 @@ const WhatsAppChat = () => {
           {/* Header */}
           <div style={styles.header}>
             <div style={styles.profile}>
-              <img src="/public/assets/masud-rana.png" style={styles.avatar} />
+              <img src="/assets/masud-rana.png" style={styles.avatar} />
               <div>
                 <div style={styles.name}>Md Masud Rana</div>
                 <div style={styles.status}>Typically replies within 1 hour</div>
@@ -49,6 +54,11 @@ const WhatsAppChat = () => {
               type="text"
               placeholder="Type a message..."
               style={styles.input}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") sendMessage();
+              }}
             />
             <button
               className="flex items-center justify-center"
@@ -66,10 +76,10 @@ const WhatsAppChat = () => {
         onClick={() => setOpen(!open)}
         className="fixed bottom-8 right-8 z-[999] flex h-[60px] w-[60px] items-center justify-center"
       >
-        {/* Slow Ping */}
+        {/* Ping Animation */}
         <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-70 animate-ping [animation-duration:2s]"></span>
 
-        {/* Static Icon */}
+        {/* Icon */}
         <span className="relative flex h-[55px] w-[55px] items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg">
           <FaWhatsapp size={28} />
         </span>
@@ -81,20 +91,6 @@ const WhatsAppChat = () => {
 export default WhatsAppChat;
 
 const styles: { [key: string]: React.CSSProperties } = {
-  floating: {
-    position: "fixed",
-    bottom: "20px",
-    right: "20px",
-    background: "#25D366",
-    color: "white",
-    border: "none",
-    borderRadius: "50%",
-    width: "60px",
-    height: "60px",
-    cursor: "pointer",
-    zIndex: 999,
-  },
-
   chatBox: {
     position: "fixed",
     bottom: "90px",

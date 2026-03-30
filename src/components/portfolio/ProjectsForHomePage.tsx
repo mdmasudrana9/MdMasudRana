@@ -1,22 +1,18 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/data/projects";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import { Link } from "react-router-dom";
 import usePageTitle from "@/hooks/usePageTitle";
 
-const categories = ["All", ...new Set(projects.map((p) => p.category))];
-
-const Projects = () => {
-  const [filter, setFilter] = useState("All");
+const ProjectsForHomePage = () => {
   const { theme, toggleTheme } = useTheme();
-  const filtered =
-    filter === "All" ? projects : projects.filter((p) => p.category === filter);
+
   usePageTitle("Md Masud Rana - Projects");
 
   return (
-    <section id="services" className="md:py-24 mt-4 bg-primary/5">
+    <section id="projects" className=" bg-primary/5 pt-24">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -32,7 +28,7 @@ const Projects = () => {
         </motion.div>
 
         {/* Filter */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        {/* <div className="flex flex-wrap gap-2 mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -46,12 +42,12 @@ const Projects = () => {
               {cat}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="popLayout">
-            {filtered.map((project) => (
+            {projects.slice(0, 3).map((project) => (
               <Link
                 key={project.name}
                 to={`/projects/${project.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
@@ -117,7 +113,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex justify-center my-12"
+          className="flex justify-center mt-12"
         >
           <div
             className={`inline-flex items-center gap-3 px-8 py-3 rounded-full border ${
@@ -126,25 +122,20 @@ const Projects = () => {
                 : "border-primary/20 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10"
             }`}
           >
-            <span
-              className={`w-2 h-2 rounded-full animate-pulse-glow ${
-                theme === "dark" ? "bg-white" : "bg-primary"
-              }`}
-            />
-
-            <span
-              className={`text-sm font-medium animate-pulse-glow ${
-                theme === "dark" ? "text-white/80" : "text-primary/80"
-              }`}
+            <Link
+              to="/projects"
+              className="flex items-center gap-2 text-primary font-medium"
             >
-              More projects coming soon...
-            </span>
-
-            <span
-              className={`w-2 h-2 rounded-full animate-pulse-glow ${
-                theme === "dark" ? "bg-white" : "bg-primary"
-              }`}
-            />
+              <span
+                className={`text-sm font-medium animate-pulse-glow ${
+                  theme === "dark" ? "text-white/80" : "text-primary/80"
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  View All Projects <ArrowRight size={14} />
+                </div>
+              </span>
+            </Link>
           </div>
         </motion.div>
       </div>
@@ -152,4 +143,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default ProjectsForHomePage;

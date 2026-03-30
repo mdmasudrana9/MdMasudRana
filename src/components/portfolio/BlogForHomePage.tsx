@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowUpRight } from "lucide-react";
+import { Calendar, Clock, ArrowUpRight, ArrowRight } from "lucide-react";
 import { blogPosts } from "@/data/blog";
 import { Link } from "react-router-dom";
 import { useTheme } from "@/hooks/useTheme";
 import usePageTitle from "@/hooks/usePageTitle";
 
-const Blog = () => {
+const BlogForHomePage = () => {
   const { theme, toggleTheme } = useTheme();
   usePageTitle("Md Masud Rana - Blog");
   return (
-    <section id="blog" className="md:py-24 mt-4 bg-primary/5">
+    <section id="blog" className="md:pb-24 pt-10 bg-primary/5">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -21,12 +21,12 @@ const Blog = () => {
             {"// Blog"}
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-foreground mb-4 leading-tight font-mono">
-            <span className="gradient-text">Articles</span>
+            Latest <span className="gradient-text">Articles</span>
           </h2>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 gap-6">
-          {blogPosts.map((post, i) => (
+          {blogPosts.slice(0, 2).map((post, i) => (
             <Link to={`/blog/${post.slug}`} key={post.slug}>
               <motion.article
                 initial={{ opacity: 0, y: 20 }}
@@ -96,25 +96,32 @@ const Blog = () => {
                 : "border-primary/20 bg-gradient-to-r from-primary/10 via-primary/5 to-primary/10"
             }`}
           >
-            <span
+            {/* <span
               className={`w-2 h-2 rounded-full animate-pulse-glow ${
                 theme === "dark" ? "bg-white" : "bg-primary"
               }`}
-            />
+            /> */}
 
-            <span
-              className={`text-sm font-medium animate-pulse-glow ${
-                theme === "dark" ? "text-white/80" : "text-primary/80"
-              }`}
+            <Link
+              to="/blog"
+              className="flex items-center gap-2 text-primary font-medium"
             >
-              More articles coming soon...
-            </span>
+              <span
+                className={`text-sm font-medium animate-pulse-glow ${
+                  theme === "dark" ? "text-white/80" : "text-primary/80"
+                }`}
+              >
+                <div className="flex items-center gap-2">
+                  View All Articles <ArrowRight size={14} />
+                </div>
+              </span>
+            </Link>
 
-            <span
+            {/* <span
               className={`w-2 h-2 rounded-full animate-pulse-glow ${
                 theme === "dark" ? "bg-white" : "bg-primary"
               }`}
-            />
+            /> */}
           </div>
         </motion.div>
       </div>
@@ -122,4 +129,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default BlogForHomePage;

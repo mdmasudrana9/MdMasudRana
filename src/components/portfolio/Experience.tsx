@@ -14,7 +14,7 @@ const Experience = () => {
           viewport={{ once: true }}
         >
           <p className="font-mono text-sm text-primary mb-2">{"// Career"}</p>
-          <h2 className="text-3xl sm:text-4xl font-semibold mb-12">
+          <h2 className=" text-3xl sm:text-4xl lg:text-4xl font-bold text-foreground mb-4 leading-tight font-mono">
             Work <span className="gradient-text">Experience</span>
           </h2>
         </motion.div>
@@ -49,12 +49,12 @@ const Experience = () => {
               <div className="card-glass p-6">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
                   <div>
-                    <h3 className="text-lg font-bold text-foreground">
+                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2 font-mono">
                       {exp.position}
                     </h3>
                     <a href={exp.url} className="flex mt-2 items-center gap-2">
                       <img className="w-10 h-10" src={exp.logo} />
-                      <p className="text-sm hover:text-muted-foreground font-semibold text-primary">
+                      <p className=" hover:text-muted-foreground font-mono font-semibold text-primary leading-relaxed text-[15px]">
                         {exp.company}
                       </p>
                     </a>
@@ -68,6 +68,8 @@ const Experience = () => {
                     </span>
                   </div>
                 </div>
+
+                <p className="mb-3">{exp.description}</p>
                 <ul className="space-y-1.5">
                   {exp.responsibilities.map((r) => (
                     <li

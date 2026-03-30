@@ -19,7 +19,7 @@ const GitHubCalendar = () => {
           <p className="font-mono text-sm text-primary mb-2">
             {"// Open Source"}
           </p>
-          <h2 className="md:text-4xl text-3xl font-semibold mb-4">
+          <h2 className=" text-3xl sm:text-4xl lg:text-4xl font-bold text-foreground mb-4 leading-tight font-mono">
             GitHub <span className="gradient-text">Contributions</span>
           </h2>
           <p className="text-muted-foreground text-sm mb-4 flex items-center gap-2">
