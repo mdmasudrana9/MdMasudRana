@@ -42,45 +42,48 @@ const About = () => {
                 <img
                   src="/assets/masud-rana.png"
                   alt="Md Masud Rana"
-                  className="    w-full h-full object-cover rounded-2xl border-2 border-border shadow-lg"
+                  className="w-full h-full object-cover rounded-2xl border-2 border-border shadow-lg"
                   loading="lazy"
                 />
-                <div className="flex gap-2 mt-4 w-full  justify-center items-center">
+                {/* Resume Buttons Row */}
+                <div className="flex gap-2 mt-4 w-full justify-center items-stretch">
                   <a
                     href="https://docs.google.com/document/d/1L4N9zsB6m9nL9VUf7_jzSkW2KxXqoPEH/edit"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full"
+                    className="card-glass hover:text-primary hover:border-primary/50 transition-colors flex-1 text-xs p-4 flex items-center justify-center"
                   >
-                    <button className="card-glass hover:text-primary hover:border-primary/50 transition-colors w-full text-xs p-4">
-                      View Resume
-                    </button>
+                    View Resume
                   </a>
                   <a
                     href="/assets/Resume of Md Masud Rana.pdf"
                     download="Md_Masud_Rana_Resume.pdf"
-                    className="card-glass cursor-pointer hover:text-primary hover:border-primary/50 transition-colors text-xs p-4 inline-flex items-center justify-center"
+                    className="card-glass cursor-pointer hover:text-primary hover:border-primary/50 transition-colors text-xs p-4 flex items-center justify-center"
                   >
                     <Download size={16} />
                   </a>
                 </div>
 
-                <div className="flex  items-center gap-2">
+                {/* Action Buttons Row (Meeting & Upwork) */}
+                <div className="flex items-stretch gap-2 mt-3">
                   <a
                     href="https://zcal.co/mdmasudrana/60min"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="card-glass flex-1 flex items-center justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors text-xs p-4"
                   >
-                    <button className="card-glass mt-3 flex items-center cursor-pointer justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors w-full text-xs p-4">
-                      <p>Schedule A Meeting</p>{" "}
-                      <FaCalendar className="text-green-600" size={14} />
-                    </button>
+                    <span>Meet</span>
+                    <FaCalendar className="text-green-600" size={14} />
                   </a>
-                  <a href="/" target="_blank" rel="noopener noreferrer">
-                    <button className="card-glass mt-3 flex items-center cursor-pointer justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors w-full text-xs p-4">
-                      <p>Hire in UpWork</p>
-                      <FaUpwork size={15} className="text-green-600" />
-                    </button>
+
+                  <a
+                    href="https://www.upwork.com/freelancers/~your-id"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="card-glass flex-1 flex items-center justify-center gap-2 hover:text-primary hover:border-primary/50 transition-colors text-xs p-4"
+                  >
+                    <span>Hire In UpWork</span>
+                    <FaUpwork size={15} className="text-green-600" />
                   </a>
                 </div>
               </div>
