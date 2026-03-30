@@ -10,7 +10,7 @@ import Skills from "./Skills";
 const About = () => {
   usePageTitle("Md Masud Rana - About");
   return (
-    <div className="bg-primary/5 mb-5">
+    <div className="bg-primary/5 pb-5">
       <section id="about" className="md:py-24 mt-4">
         <div className="section-container">
           <motion.div

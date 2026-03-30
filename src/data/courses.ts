@@ -47,4 +47,21 @@ export const courses: Course[] = [
       "Prisma",
     ],
   },
+  {
+    title: "Advanced MERN Stack Development",
+    platform: "Udemy",
+    instructor: "Academind by Maximilian Schwarzmüller",
+    completedDate: "2025",
+    topics: [
+      "Advanced React Patterns",
+      "Next.js Deep Dive",
+      "Authentication & Authorization",
+      "JWT & Security",
+      "REST & GraphQL API",
+      "Performance Optimization",
+      "Scalable Architecture",
+      "Deployment (Vercel, Docker)",
+      "TypeScript Advanced",
+    ],
+  },
 ];
