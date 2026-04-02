@@ -26,14 +26,30 @@ const Navbar = () => {
       className="fixed top-0 py-2 left-0 right-0 z-50 border-b border-border bg-background/80 backdrop-blur-xl"
     >
       <div className="section-container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center mt-2 gap-2">
-          <img
-            src={theme === "dark" ? "/assets/logo.gif" : "/assets/logo.gif"}
-            alt="MR Logo"
-            className="h-16 w-16 rounded"
-          />
-          {/* <span className="font-mono text-lg font-bold text-primary">MR</span> */}
-        </Link>
+        {theme === "dark" ? (
+          <Link to="/" className="flex items-center gap-2">
+            <div className="relative h-12 w-12 rounded-lg overflow-hidden border border-border bg-background">
+              <img
+                src="/assets/logo.gif"
+                alt="Masud rana Logo"
+                className="h-full w-full object-cover invert dark:invert-0"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
+            </div>
+          </Link>
+        ) : (
+          <Link to="/" className="flex items-center mt-2 gap-2">
+            <img
+              src="/assets/logo.gif"
+              alt="MR Logo"
+              style={{
+                filter:
+                  "brightness(0) saturate(100%) invert(63%) sepia(58%) saturate(400%) hue-rotate(80deg)",
+              }}
+              className="h-12 w-12 rounded-lg  border border-border"
+            />
+          </Link>
+        )}
 
         {/* Desktop */}
         <ul className="hidden md:flex items-center gap-6">
