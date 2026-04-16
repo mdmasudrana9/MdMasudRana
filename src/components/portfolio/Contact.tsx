@@ -120,7 +120,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-14"
+          className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-5 gap-4 mb-14"
         >
           {contactInfo.map(({ icon: Icon, label, value, href }, i) => (
             <motion.a
